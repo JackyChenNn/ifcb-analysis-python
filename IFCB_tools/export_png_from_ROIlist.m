@@ -22,7 +22,7 @@ end;
 if ~exist('ROInumbers', 'var'),
     [ROInumbers] = find(x>0);
 end;
-fid=fopen([ROIfile_withpath '.roi']);% '.roi']);
+fid=fopen([ROIfile_withpath '.roi']); % '.roi']);
 for count = 1:length(ROInumbers),
     num = ROInumbers(count);
     fseek(fid, startbyte(num), -1);
@@ -30,7 +30,7 @@ for count = 1:length(ROInumbers),
     img = reshape(img, x(num), y(num));
     pngname = [filename '_' num2str(num,'%05.0f') '.png'];
     if length(img) > 0,
-        imwrite(uint8(img'), fullfile(outputpath, pngname));
+        imwrite(uint8(img), fullfile(outputpath, pngname));
     end;
 end;
 fclose(fid);
